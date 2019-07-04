@@ -1,0 +1,206 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://www.yunpian.com/favicon.ico">
+    <title>SMPP 客户端</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='bootstrap/form-validation.css') }}" rel="stylesheet">
+  </head>
+
+  <style type="text/css">
+    pre {
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: rgb(245, 245, 245);
+    padding: 9.5px;
+    margin: 0px 0px 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.15);
+    border-image: initial;
+    border-radius: 4px;
+}
+  </style>
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://www.yunpian.com/favicon.ico" alt="" width="72" height="72">
+        <h2>SMPP 客户端</h2>
+        <p class="lead">在下面输入你的SMPP帐号信息，可以测试帐号是否开通。注意，要发送的文本需要提前申请好模板</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 order-md-1"></div>
+        <div class="col-md-8 order-md-1">
+          <form class="needs-validation" action="#" method="post">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Host</label>
+                <input name="host" type="text" class="form-control" id="firstName" placeholder="116.XX.XX.180" value="" required>
+                <div class="invalid-feedback">
+                   Host is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Port</label>
+                <input name="port" type="text" class="form-control" id="lastName" placeholder="3**2" value="" required>
+                <div class="invalid-feedback">
+                  Port is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Username</label>
+                <input name="username" type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Username is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Password</label>
+                <input name="password" type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Password is required.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="mb-3">
+              <label for="address">Phone number</label>
+              <input name="phone" type="text" class="form-control" id="address" placeholder="" required>
+              <div class="invalid-feedback">
+                Please enter your Phone number
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Text</label>
+              <input name="text" type="text" class="form-control" id="address" placeholder="" required>
+              <div class="invalid-feedback">
+                Please enter your Text
+              </div>
+            </div>
+
+
+
+          </form>
+
+          <button class="btn btn-primary btn-lg btn-block btn-submit">Send</button>
+
+          <hr class="mb-4">
+
+          <pre class="code">:)</pre>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2019 Yunpian.com</p>
+        <!-- <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul> -->
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="./bootstrap/jquery-slim.min.js"><\/script>')</script>
+    <script src="./bootstrap/popper.min.js"></script>
+    <script src="./bootstrap/bootstrap.min.js"></script>
+    <script src="./bootstrap/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+
+    </script>
+    <script>
+      function getNowFormatDate() {//获取当前时间
+        var date = new Date();
+        var seperator1 = "-";
+        var seperator2 = ":";
+
+        var mm = date.getMonth() + 1<10? "0"+(date.getMonth() + 1):date.getMonth() + 1;
+        var dd = date.getDate()<10? "0" + date.getDate():date.getDate();
+        var yyyy = date.getFullYear()
+
+        var h = date.getHours() < 10 ? "0" + date.getHours() : date.getHours()
+        var m = date.getMinutes() <10 ? "0" +date.getMinutes():date.getMinutes()
+        var s = date.getSeconds() < 10 ? "0" +date.getSeconds():date.getSeconds()
+
+        return (yyyy+"-"+mm+"-"+dd+" "+h+":"+m+":"+s)
+      }
+      $(document).ready(function() {
+        $(".btn-submit").on("click", function() {
+          var forms = $('.needs-validation');
+          var elements = forms[0]
+          var data = forms.serialize()
+
+          console.log(111)
+
+          var nowTime = getNowFormatDate()
+          if(elements[0].value==="" || elements[1].value==="" || elements[2].value==="" ||
+            elements[3].value==="" || elements[4].value==="" || elements[5].value==="" ){
+            $('pre.code').append("\n" + nowTime +" 请填写所有字段");
+            return
+          }
+          // 没做校验
+          $.ajax({
+            url: "/send",
+            dataType: "json",
+            data: data,
+            type:"post",
+            success: function(data){
+              // var formatData = JSON.parse(data);
+              if (data.code === 0 ) {
+                nowTime = getNowFormatDate();
+                $('pre.code').append("\n" + nowTime+" "+data.msg);
+              } else {
+                alert('Server error')
+              }
+            }
+          });
+      })
+    })
+    </script>
+  </body>
+</html>
